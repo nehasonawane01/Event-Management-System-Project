@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+ <!-- web icons import -->
+ <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+ <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<!-- css -->
+
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popins',sans-serif;
+
+}
+body{
+    background: url('{%static 'images/sl1.jpg'%}');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+.form-container{
+    display: flex;
+    width: 450px;
+    height: 600px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+
+}
+.form-col{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.btn-box{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.btn{
+    font-weight: 500;
+    padding: 8px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rgb(255,255,255,0.2);
+    color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: .2s;
+
+}
+.btn-1{
+    background: rgb(180, 36, 93);
+}
+.btn:hover{
+    opacity: 0.85;
+}
+.form-box{
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    transition: .3s;
+}
+.form-title{
+    margin: 40px 0;
+    color:#21264D;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* ===Login Form=== */
+
+.login-form{
+    left: 50%;
+}
+
+/* ======Register Form===== */
+.register-form{
+    left: -50%;
+}
+.register-form .form-title{
+    margin-block: 40px 20px;
+}
+
+/* =====Form Inputs===== */
+.form-inputs{
+    width: 100%;
+
+}
+.input-box{
+    position: relative;
+}
+.inputs{
+    width: 100%;
+    height:55px;
+    margin: 10px 0;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgb(0,0,0,0.2);
+}
+.input-field{
+    font-size: 16px;
+    padding: 0 40px 0 20px ;
+    background: rgba(255,255,255,0.2);
+    outline: none;
+    backdrop-filter: blur(20px);
+}
+::placeholder{
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+}
+.input-box .icon{
+    position: absolute;
+    top: 41%;
+    right: 20px;
+    transform: translate(-50%);
+    color: #fff;
+    width: 18px;
+    height: 18px;
+
+}
+.forgot-pass, .remember-me{
+    display: flex;
+    justify-content: right;
+    gap: 5px;
+}
+.forgot-pass a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.forgot-pass:hover{
+    text-decoration: underline;
+}
+.remember-me label{
+    color: #fff;
+    font-size: 14px;
+}
+.submit-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgb(180, 36, 93);
+    cursor: pointer;
+    transition: .3s;
+}
+.submit-btn:hover{
+    gap:15px;
+}
+<!--.social-login{-->
+<!--    display: flex;-->
+<!--    gap: 20px;-->
+<!--    margin-top: 20px;-->
+<!--}-->
+<!--.social-login-box{-->
+<!--    display: flex;-->
+<!--    align-items: center;-->
+<!--    justify-content: center;-->
+<!--    height: 40px;-->
+<!--    width: 40px;-->
+<!--    background: rgba(255,255,255,0.2);-->
+<!--    border-radius: 50%;-->
+<!--    box-shadow: 0 0 1 rgb(0,0,0,0.2);-->
+<!--    color: #fff;-->
+<!--    cursor:pointer;-->
+<!--    transition:.2s;-->
+<!--}-->
+<!--.social-login-icon{-->
+<!--    width: 24px;-->
+<!--}-->
+<!--.social-login-box:hover{-->
+<!--    transform: scale(0.9);-->
+<!--    color:rgb(180, 36, 93);-->
+<!--}-->
+</style>
+
+<!-- html -->
+
+<body>
+    <div class="form-container">
+        <div class="form-col">
+            <div class="btn-box">
+                <button class="btn btn-1" id="login">Sign In</button>
+                <button class="btn btn-2" id="register">Sign Up</button>
+            </div>
+            <!-- login form container -->
+             <form  class="form-box login-form" action="login" method="post" >
+                 {% csrf_token %}
+                 {% if messages %}
+                 <div class="msg" style="color:red; text-align:center;">
+                     {% for message in messages %}
+                        <p>{{ message }}</p>
+                     {% endfor %}
+                 </div>
+                 {% endif %}
+                <div class="form-title">
+                    <span>Sign In</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="email" class="inputs input-field" placeholder="Uemail" name="uemail" required>
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" oninput="changeIcon(this.value)" id="logPassword"  class="inputs input-field" placeholder="password" name="upass" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="log-pass-icon" onclick="myLogPassword()"></ion-icon>
+                    </div>
+                    <div class="forgot-pass">
+                        <a href="#">Forgot Password</a>
+                    </div>
+                    <div class="input-box">
+                        <button class="inputs submit-btn">
+                            <span> Sing In</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="social-login">
+                <div class="social-login-box">
+                    <ion-icon name="logo-google" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-facebook" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-twitter" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-github" class="social-login-icon"></ion-icon>
+                </div>
+            </div> -->
+             </form>
+
+             <!-- Register Form  Container-->
+
+             <form  class="form-box register-form" action="register" method="post" >
+                 {% csrf_token %}
+                <div class="form-title">
+                    <span>Sign Up</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" class="inputs input-field" placeholder="Username" name="uname" required>
+                        <ion-icon name="person-outline" class="icon"></ion-icon>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" class="inputs input-field" placeholder="Uemail" name="uemail" required>
+                        <ion-icon name="mail-outline" class="icon"></ion-icon>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" oninput="changeIcon(this.value)" id="regPassword"  class="inputs input-field" placeholder="password" name="upass" required>
+                        <ion-icon name="lock-closed-outline" class="icon" id="reg-pass-icon" onclick="myRegPassword()"></ion-icon>
+                    </div>
+                    <div class="input-box">
+                        <input type="number" class="inputs input-field" placeholder="Contact" name="mobile" required>
+                        <ion-icon name="call-outline" class="icon"></ion-icon>
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me-check">
+                        <label for="remember-me-check">Remember me</label>
+                    </div>
+                    <div class="input-box">
+                        <button class="inputs submit-btn">
+                            <span> Sing Up</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="social-login">
+                <div class="social-login-box">
+                    <ion-icon name="logo-google" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-facebook" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-twitter" class="social-login-icon"></ion-icon>
+                </div>
+                <div class="social-login-box">
+                    <ion-icon name="logo-github" class="social-login-icon"></ion-icon>
+                </div>
+            </div> -->
+             </form>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+
+<!-- javascript -->
+
+<script type="text/javascript">
+    const loginBtn=document.querySelector("#login");
+    const registerBtn=document.querySelector("#register");
+    const loginForm=document.querySelector(".login-form");
+    const registerForm=document.querySelector(".register-form");
+
+    loginBtn.addEventListener('click', () => {
+        loginBtn.style.backgroundColor="rgb(180, 36, 93)";
+        registerBtn.style.backgroundColor="rgba(255,255,255,0.2)";
+
+        loginForm.style.left="50%";
+        registerForm.style.left="-50%";
+
+        loginForm.style.opacity=1;
+        registerForm.style.opacity=0;
+    })
+
+    registerBtn.addEventListener('click', ( )=> {
+        loginBtn.style.backgroundColor="rgba(255,255,255,0.2)";
+        registerBtn.style.backgroundColor="rgb(180, 36, 93)";
+
+        loginForm.style.left="150%";
+        registerForm.style.left="50%";
+
+        loginForm.style.opacity=0;
+        registerForm.style.opacity=1;
+    })
+
+// view password functions
+const logInputField=document.getElementById('logPassword');
+const logInputIcon=document.getElementById('log-pass-icon');
+
+const regInputField=document.getElementById('regPassword');
+const regInputIcon=document.getElementById('reg-pass-icon');
+
+function myLogPassword(){
+    if(logInputField.type=="password"){
+    logInputField.type="text";
+
+    logInputIcon.name="eye-off-outline";
+    logInputIcon.style.cursor="pointer";
+
+    }
+    else{
+        logInputField.type="password";
+
+    logInputIcon.name="eye-outline";
+    logInputIcon.style.cursor="pointer";
+    }
+}
+
+function myRegPassword(){
+    if(regInputField.type=="password"){
+        regInputField.type="text";
+
+        regInputIcon.name="eye-off-outline";
+        regInputIcon.style.cursor="pointer";
+
+    }
+    else{
+        regInputField.type="password";
+
+        regInputIcon.name="eye-outline";
+        regInputIcon.style.cursor="pointer";
+    }
+}
+//change the icon when the user starts trying password
+function changeIcon(value){
+    if(value.length > 0){
+        logInputIcon.name = "eye-outline";
+        regInputIcon.name = "eye-outline";
+    }else{
+        logInputIcon.name="lock-closed-outline";
+        regInputIcon.name="lock-closed-outline";
+    }
+}
+
+</script>
+</html>

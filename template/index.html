@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- font cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+:root{
+    --primary-color:#2095ae;
+    --white-color:#fff;
+    --light-gray-color:#ddd;
+    --blue-color:
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+html{
+    font-size: 16px;
+}
+/* ==============home page start============================ */
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+img{
+    display:block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+}
+.heading-normal-txt{
+font-size: 1rem;
+letter-spacing: 6px;
+color: var(--primary-color);
+}
+.headings{
+    font-size: 3rem;
+    font-family: "ubuntu";
+    padding-bottom: 2rem;
+    letter-spacing: 2px;
+}
+.headings span{
+    color: var(--primary-color);
+}
+.secondary-headings{
+    font-size: 2.5rem;
+    font-family: ubuntu;
+    padding: 1rem 0;
+}
+.lead{
+    font-size: 1.1rem;
+    line-height: 2;
+    text-align: justify;
+}
+.primary-btn{
+    width:50%;
+    outline: none;
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+/* ==============home page end============================ */
+
+/* ===============Header starts============= */
+header{
+    /* background: var(--primary-color); */
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    width: 100%;
+    height: 100;
+    transition: all 0.3s ease-in-out;
+}
+header.sticky{
+    background: var(--primary-color);
+}
+/* .logo img{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+} */
+.logo h1{
+    color:var(--white-color);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+}
+nav ul li{
+    margin: 0 0.9rem;
+    position: relative;
+}
+nav ul li a{
+    color: var(--white-color);
+    font-size: 1.1rem;
+}
+nav ul li::before{
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--white-color);
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+nav ul li:hover::before{
+    opacity: 1;
+    width: 100%;
+}
+.btn{
+    font-size: 1.3rem;
+    color: var(--white-color);
+    cursor: pointer;
+    display: none;
+}
+/* ===============Header close============= */
+/* ===============showcase start============= */
+main{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+.swiper{
+    height: 100vh;
+}
+.slide-container{
+    width: 100%;
+}
+.slide-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img-overlay{
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    font-family: "ubuntu";
+    transform: translate(-50%, -50%);
+}
+.img-overlay p{
+    font-size: 1rem;
+    letter-spacing: 8px;
+    color: var(--white-color);
+    animation: animate 4s forwards;
+}
+.img-overlay h2{
+    /* font-size: 5rem; */
+    font-size: 3rem;
+    color: var(--white-color);
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    animation: animate 4s forwards;
+    transition: all 0.5s ease-in-out;
+}
+.overlay{
+    position: relative;
+}
+.overlay::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.4); */
+    background: rgba(0, 0, 0, 0.3);
+}
+@keyframes animate {
+    0%{
+    transform: translateX(-50%);
+    opacity: 0;
+    }
+    50%{
+    opacity: 0.2;
+    }
+    70%{
+    opacity: 0.5;
+    }
+    70%{
+    opacity: 1;
+    transform: translateX(-0%);
+    }
+}
+.img-overlay h2 span{
+    color: transparent;
+    -webkit-text-stroke: 1px var(--white-color);
+}
+
+/* ===============showcase close============= */
+/* ===============Search Start============= */
+#event-search{
+    transform: translateY(-170%);
+}
+.form-wrapper{
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    width: 100%;
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-control{
+    width: 100%;
+}
+form input,select{
+    padding: 0.6rem;
+    outline: none;
+    font-size: 1.1rem;
+    color: #000;
+    border: 1px solid var(--light-gray-color);
+    margin: 0 0.4rem;
+    border-radius: 4px;
+}
+.primary-btn{
+    width:350px;
+}
+/* ===============Search close============= */
+/* ===============About open============= */
+.about-content-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3rem;
+    margin: 0rem 0;
+}
+.about-content-wrapper h2 span{
+    color: var(--primary-color);
+    font-family: "ubuntu";
+}
+.about-content-wrapper ul{
+    list-style: none;
+}
+.about-content-wrapper ul .icons{
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+.about-content-wrapper ul .icons i{
+    background: var(--primary-color);
+    padding: 0.8rem;
+    border-radius: 50%;
+    color: var(--white-color);
+}
+.about-content-wrapper ul p{
+    margin-left: 1rem;
+}
+.agency-right-side .img{
+    position: relative;
+}
+.agency-right-side .img img{
+    width: 75%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+    transition: 0.3s ease-in;
+}
+.agency-right-side .img::after{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 55px;
+    bottom: 0;
+    right: 0;
+    background: var(--primary-color);
+    width: 70%;
+    height: 100%;
+    z-index: -2;
+}
+.agency-right-side .img img:hover{
+    transform: scale(0.95);
+
+}
+
+/* ===============About close============= */
+/* ===============Event Packages open============= */
+#event-slider .container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0px 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.slider-item img{
+    height: 400px;
+    width: 300px;
+}
+#event-slider .container .section-header{
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.section-header h3{
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+.section-header h1{
+    font-size: calc(20px + 1.5vw);
+    color: #000;
+    font-weight: 600;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+.section-header .navigation-btns{
+    align-self: flex-end;
+    user-select: none;
+}
+.section-header .navigation-btns i{
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+.section-header .navigation-btns i:hover{
+    background-color: darkcyan;
+}
+.section-header .navigation-btns i:nth-child(1){
+    margin-right: 5px;
+}
+.container .slider{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    /* background-color: lightblue; */
+    overflow: hidden;
+}
+.slider .slider-item{
+    width: 300px;
+    max-height: 400px;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left 0.5s cubic-bezier(0.645, 0.045, 0.354, 1);
+    overflow: hidden;
+}
+.slider-item:nth-child(1){
+    left: calc(-300px + -20px);
+}
+.slider-item:nth-child(2){
+    left: 0;
+}
+.slider-item:nth-child(3){
+    left: calc(300px + 20px);
+}
+.slider-item:nth-child(4){
+    left: calc((300px + 20px) *2);
+}
+.slider-item:nth-child(5){
+    left: calc((300px + 20px) *3);
+}
+.slider-item:nth-child(6){
+    left: calc((300px + 20px) *4);
+}
+.slider-item:nth-child(7){
+    left: calc((300px + 20px) *5);
+}
+.slider-item:nth-child(8){
+    left: calc((300px + 20px) *6);
+}
+.slider-item img{
+    object-fit: cover;
+    border-radius: 15px;
+}
+.slider-item .overlay-desc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px,20px 30px;
+    background: linear-gradient(to top,rgba(0,0,0,0.9)0%,
+                rgba(0,0,0,0.6) 10%, rgba(0,0,0,0.01) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+.slider-item .overlay-desc .explore-now-btn{
+    padding: 12px 20px;
+    background-color: rgba(96, 167, 225, 0.8);
+    color: var(--white-color);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px 10px;
+}
+.slider-item .overlay-desc .explore-now-btn:hover{
+    background-color: var(--primary-color);
+}
+.slider-item .overlay-desc .event-desc{
+    position: relative;
+}
+.slider-item .overlay-desc .event-desc h3{
+    margin-bottom: 8px;
+    margin-left: 7px;
+    font-size: 24px;
+    color: var(--white-color);
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.slider-item .overlay-desc .event-desc p{
+    color: var(--white-color);
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-left: 7px;
+}
+.slider-item .overlay-desc .event-desc p i{
+    margin-right: 10px;
+    font-size: 18px;
+    color: var(--primary-color);
+}
+/* ===============Evnet Packages close============= */
+/* ===============gallery open============= */
+#gallery{
+    padding: 0rem 6rem;
+}
+.choose-wrapper{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+}
+.lg-img{
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    width: 90%;
+    height: 80%;
+}
+.lg-img:hover::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+.lg-img:hover{
+    transform: scale(1.02);
+}
+.img-content{
+    position: absolute;
+    bottom: 12px;
+}
+.lg-img .img-content h3{
+    padding: 0 2rem;
+    color:var(--white-color)
+}
+.hidden-content{
+    padding: 0.5rem 2rem;
+    color: var(--white-color);
+    transform:translateY(120%);
+    transition: all 0.5s ease-in-out;
+}
+.lg-img:hover .hidden-content{
+    transform: translateY(0%);
+}
+.price-label{
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    transform: rotate(-90deg);
+}
+.row-wise-img{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 2rem;
+}
+/* ===============gallery close============= */
+<!--======review section open=============-->
+.reviews{
+    padding: 40px 0;
+    background: #f1f1f1;
+    color: #434343;
+    text-align: center;
+}
+.inner{
+    max-width: 1500px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2opx;
+}
+.inner h1{
+    margin-left: 150px;
+}
+.border{
+    width: 160px;
+    height: 5px;
+    background: #6ab04c;
+    margin: 26px auto;
+}
+.row1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.col1{
+    flex: 33.33%;
+    max-width: 25.25%;
+    padding: 30px;
+     margin-right: 35px;
+
+}
+.review{
+    width: 360px;
+    height: 400px;
+    background-color: white ;
+    padding: 30px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
+}
+.review img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.name{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px;
+}
+.stars{
+    color: #6ab04c;
+    margin-bottom: 20px;
+}
+@media screen and (max-width:960px) {
+  .col1{
+    flex: 100%;
+    max-width: 80%;
+  }
+  .stars{
+    margin-left: 65px;
+  }
+}
+@media screen and (max-width:600px) {
+  .col1{
+    flex: 100%;
+    max-width: 80%;
+}
+}
+
+ /* ==============footer================= */
+
+
+footer {
+  background-color:  var(--primary-color);
+  color: white;
+  padding: 20px 20px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+
+}
+
+.footer-left, .footer-middle, .footer-right {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px;
+  margin-left: 50px;
+
+}
+.footer-middle{
+    margin-left: 150px;
+}
+
+.footer-left h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-middle h4, .footer-right h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.footer-middle ul, .footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-middle li, .footer-right li {
+  margin-bottom: 10px;
+}
+
+.footer-middle a, .footer-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-middle a:hover, .footer-right a:hover {
+  color: #ff6347; /* Highlight color */
+}
+
+/* Social Links Styling (Vertical) */
+.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff6347;
+}
+
+.social-links i {
+  margin-right: 8px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-left, .footer-middle, .footer-right {
+    text-align: center;
+    min-width: unset;
+    margin-bottom: 20px;
+  }
+  .footer-middle ul, .footer-right ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  .social-links {
+    justify-content: center;
+  }
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+
+
+
+
+/* ===============Responsive start============= */
+@media(max-width: 1024px){
+    .container{
+        padding: 0 1rem;
+    }
+    .swiper{
+        height: 90vh;
+    }
+    .img-overlay p{
+        letter-spacing: 6px;
+    }
+    .img-overlay h2{
+        /* font-size: 5rem; */
+        font-size: 3rem;
+        letter-spacing: 3px;
+    }
+}
+@media(max-width: 900px){
+  .btn{
+    display: block;
+  }
+  nav ul{
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 400px;
+    background: var(--primary-color);
+    top: -600px;
+    left: 0;
+    padding: 3rem 1rem;
+    transition: all 0.5s ease-in;
+  }
+nav ul li a{
+    margin: 11px;
+    /* margin: 15px; */
+    display: block;
+}
+.close-btn{
+    position: absolute;
+    top: 0rem;
+    right: 0;
+    margin: 25px;
+}
+nav ul.display{
+    top: 0;
+    transition: all 0.5s ease-in-out;
+}
+nav ul li::before{
+    top: 45px;
+    left: 15px;
+
+}
+nav ul li:hover::before{
+    width: 20%;
+}
+/* slider */
+.swiper{
+    height: 70vh;
+}
+.img-overlay p{
+    letter-spacing: 4px;
+}
+.img-overlay h2{
+    /* font-size: 5rem; */
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+}
+/* top search */
+#event-search{
+    transform: translateY(0%);
+    margin: 2rem 0;
+}
+form{
+    flex-direction: column;
+    gap: 1rem;
+}
+/* about */
+
+.about-content-wrapper{
+    grid-template-columns: repeat(1 ,1fr);
+}
+.agency-right-side .img img{
+    width: 95%;
+}
+.agency-right-side .img::after{
+    top: 15px;
+    left: 15px;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+}
+/* gallery */
+
+.choose-wrapper{
+    grid-template-columns: 1fr;
+}
+.row-wise-img{
+   grid-template-columns: 1fr;
+}
+.img-content{
+    bottom: 10px;
+}
+
+}
+
+/* ===============Responsive end============= */
+
+
+
+
+</style>
+<body>
+<!-- ============Heade start============= -->
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <h1>EventO</h1>
+                <!-- <img src="images/2.jpg" alt=""> -->
+            </div>
+            <ul>
+                <div class="btn">
+                    <i class="fas fa-times close-btn"></i>
+                </div>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Event</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="http://127.0.0.1:8000/app2/signin">Login</a></li>
+<!--                <li><a href="#"><i class="fa-solid fa-user"></i></a></li>-->
+<!--                <li><a href="#">SignUp</a></li>-->
+            </ul>
+            <div class="btn">
+                <i class="fas fa-bars menu-btn"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ============Heade close============= -->
+
+<!-- ============showcase start============= -->
+<main>
+    <div class="slide-container swiper">
+        <div class="slide-content swiper-wrapper">
+            <div class="overlay swiper-slide">
+                <img src="{% static 'images/sl1.jpg' %}" alt="">
+                <div class="img-overlay">
+                   <p> Let's Plan your event with us</p>
+                   <h2><span>Organize</span> your event</h2>
+                   <h2> with our assistant</h2>
+                </div>
+            </div>
+            <div class="overlay swiper-slide">
+                <img src="{% static 'images/sl2.jpg' %}" alt="">
+                <div class="img-overlay">
+                   <p> Let's Plan your event with us</p>
+                   <h2><span>Organize</span> your event</h2>
+                   <h2> with our assistant</h2>
+                </div>
+            </div>
+            <div class="overlay swiper-slide">
+                <img src="{% static 'images/sl3.jpg' %}" alt="">
+                <div class="img-overlay">
+                   <p> Let's Plan your event with us</p>
+                   <h2><span>Organize</span> your event</h2>
+                   <h2> with our assistant</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+ <!-- ============Heade close============= -->
+
+<!-- ============Search package open============= -->
+<section id="event-search">
+    <div class="container">
+        <div class="form-wrapper">
+<!--            <form action="#">-->
+            <form method="post" action="search">
+                {% csrf_token %}
+<!--                <input type="text" placeholder="which event?" class="form-control"/>-->
+    <select class="form-control" name="ename">
+        <option value="" disabled selected>Event Name</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Corporate Event">Corporate Event</option>
+        <option value="Party">Party</option>
+    </select>
+
+
+                <button type="submit" class="primary-btn">Search Now</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============Search package close============= -->
+<!-- ============About open============= -->
+ <section id="about">
+    <div class="container">
+        <div class="about-content-wrapper">
+            <div class="agency-left-side">
+                <p class="heading-normal-txt"> THE BEST EVENT PLANNERS</p>
+                <H2 class="headings">MANAGE THE <span>EVENT</span>WITH OUR GUIDE</H2>
+                <P class="lead">You can choose or customize your event with us. We provide you best services under your budget. so book your event package today.</P>
+                <br/>
+                <p class="lead">We provide the best variety of decors and services to make your special day more spacial.</p>
+                <ul>
+                    <li>
+                        <div class="icons">
+                           <i class="fa fa-check"></i>
+                           <p>20 Years of Experience</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icons">
+                           <i class="fa fa-check"></i>
+                           <p>1 lakhs+ events</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icons">
+                           <i class="fa fa-phone-volume"></i>
+                           <p>755 436 2213</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="agency-right-side">
+                <div class="img">
+                    <img src="{% static 'images/wedding2.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>
+ <!-- ============About close============= -->
+ <!-- ============Event slider open============= -->
+<section id="event-slider">
+    <div class="container">
+        <div class="section-header">
+            <div class="header-text">
+                <h3>Chose event packages</h3>
+                <h1>Event Packages</h1>
+            </div>
+            <div class="navigation-btns">
+                <i class="fas fa-arrow-left" id="prev_btn"></i>
+                <i class="fas fa-arrow-right" id="next_btn"></i>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slider-item">
+                <img src="{% static 'images/wed2.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Wedding</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item">
+                <img src="{% static 'images/bd5.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Birthday</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item">
+                <img src="{% static 'images/wed11.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Wedding</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item">
+                <img src="{% static 'images/cor2.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Corporate Event</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-item">
+                <img src="{% static 'images/party3.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Party</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="{% static 'images/wed1.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Wedding</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="{% static 'images/bd8.jpg' %}" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Birthday</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="slider-item">
+                <img src="images/wed2.jpg" alt="">
+                <div class="overlay-desc">
+                    <button class="explore-now-btn">Explore Now</button>
+                    <div class="event-desc">
+                        <h3>Wedding</h3>
+                        <p><i class="fa-solid fa-heart"></i>book your package now</p>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+</section>
+
+ <!-- ============Event slider close============= -->
+<!-- ============gallery close============= -->
+<section id="gallery">
+    <div class="container">
+        <p class="heading-normal-txt">Success full events</p>
+        <h2 class="headings">Event <span>Gallery</span></h2>
+        <div class="choose-wrapper">
+            <div class="img-left-side">
+                <div class="lg-img">
+                    <img src="{% static 'images/sl1.jpg' %}" alt="">
+                    <div class="img-content">
+                        <h3>"An enchanting beach wedding in Mumbai, truly magical."</h3>
+                        <div class="hidden-content">
+                            <span><i class="fa fa-clock"></i> 2 days</span>
+                            <span><i class="fa fa-user"></i> 50+ </span>
+                            <span><i class="fa fa-location"></i> Mumbai</span>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>Rs 1000000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="img-right-side">
+                <div class="lg-img">
+                    <img src="{% static 'images/wed2.jpg' %}" alt="">
+                    <div class="img-content">
+                        <h3>"A beautiful beach wedding in Goa, simply perfect."</h3>
+                        <div class="hidden-content">
+                            <span><i class="fa fa-clock"></i> 1 days</span>
+                            <span><i class="fa fa-user"></i> 20+ </span>
+                            <span><i class="fa fa-location"></i>Goa</span>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>Rs 2000000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row wise image -->
+         <div class="row-wise-img">
+            <div class="lg-img">
+                <img src="{% static 'images/wed4.jpg' %}" alt="">
+                <div class="img-content">
+                    <h3>"A dream wedding in Mumbai, beyond spectacular."</h3>
+                    <div class="hidden-content">
+                        <span><i class="fa fa-clock"></i> 1 days</span>
+                        <span><i class="fa fa-user"></i> 20+ </span>
+                        <span><i class="fa fa-location"></i>Mumbai</span>
+                    </div>
+                </div>
+                <div class="price-label">
+                    <p>Rs 150000</p>
+                </div>
+            </div>
+                <div class="lg-img">
+                    <img src="{% static 'images/bd1.jpg' %}" alt="">
+                    <div class="img-content">
+                        <h3>"An unforgettable birthday celebration, full of joy and memories."</h3>
+                        <div class="hidden-content">
+                            <span><i class="fa fa-clock"></i> 1 days</span>
+                            <span><i class="fa fa-user"></i> 20+ </span>
+                            <span><i class="fa fa-location"></i>Mumbai</span>
+                        </div>
+                    </div>
+                    <div class="price-label">
+                        <p>Rs 10000</p>
+                    </div>
+                </div>
+                    <div class="lg-img">
+                        <img src="{% static 'images/cor4.jpg' %}" alt="">
+                        <div class="img-content">
+                            <h3>"A flawless corporate event, perfectly executed and impactful."</h3>
+                            <div class="hidden-content">
+                                <span><i class="fa fa-clock"></i> 1 days</span>
+                                <span><i class="fa fa-user"></i> 20+ </span>
+                                <span><i class="fa fa-location"></i>Pune</span>
+                            </div>
+                        </div>
+                        <div class="price-label">
+                            <p>Rs 30000</p>
+                        </div>
+                    </div>
+         </div>
+    </div>
+</section>
+<!-- ============gallery close============= -->
+<!--review section open-->
+<div class="reviews">
+    <div class="inner">
+      <h1>What Our Customer Says</h1>
+
+
+      <div class="row1">
+        <div class="col1">
+          <div class="review">
+            <img src="{% static 'images/rev1.jpg'%}" alt="">
+            <div class="name">Pranjal Pardeshi</div>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              “Everything was perfectly organized and the decoration was beyond our expectations!”
+              “We enjoyed the event stress-free while the planners handled everything flawlessly.”
+
+            </p>
+          </div>
+        </div>
+
+        <div class="col1">
+          <div class="review">
+            <img src="{% static 'images/rev2.jpg'%}" alt="">
+            <div class="name">Pranav Pardeshi</div>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star-half-stroke"></i>
+            </div>
+            <p>
+               "From start to finish, the entire experience was seamless and absolutely delightful!"
+                The team took care of every little detail, allowing us to fully enjoy the day without a single worry.              </p>
+            </div>
+          </div>
+
+          <div class="col1">
+            <div class="review">
+              <img src="{% static 'images/rev3.jpg'%}" alt="">
+              <div class="name">Neha Sonawane</div>
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+
+              </div>
+              <p>
+                 Flawlessly organized and truly professional.
+                 The event impressed both our team and our partners.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- Left Section: Company Info -->
+      <div class="footer-left">
+        <h3>Event</h3>
+        <p>Your go-to platform for personalized event recommendations!</p>
+        <p>Find the best events happening around you, curated just for you!</p>
+      </div>
+
+      <!-- Middle Section: Links -->
+      <div class="footer-middle">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Explore Events</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Section: Social Media Links -->
+      <div class="footer-right">
+        <h4>Follow Us</h4>
+        <ul class="social-links">
+          <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 EventRec. All rights reserved.</p>
+      <p>Made with ❤️ for event enthusiasts.</p>
+    </div>
+  </footer>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+
+    const swiper = new Swiper(".swiper",{
+        slidePerView: 1,
+        effect: "creative",
+        creativeEffect: {
+            prev: {
+                translate: [0, 0, -400],
+            },
+            next:{
+                translate: ["100%", 0, 0],
+            },
+        },
+        loop: true,
+        direction: "horizontal",
+
+        autoplay: {
+           delay: 5000,
+        },
+        speed: 400,
+        spaceBetween: 100,
+    });
+
+
+   const menus = document.querySelector("nav ul");
+   const header = document.querySelector("header");
+   const menuBtn = document.querySelector(".menu-btn");
+   const closeBtn = document.querySelector(".close-btn");
+
+   menuBtn.addEventListener("click", ()=>{
+    menus.classList.add("display");
+   });
+
+   closeBtn.addEventListener("click", ()=>{
+    menus.classList.remove("display");
+   });
+
+//    scroll sticky navbar
+window.addEventListener('scroll',()=>{
+    if(document.documentElement.scrollTop > 20){
+        header.classList.add('sticky');
+    }else{
+        header.classList.remove("sticky");
+    }
+});
+
+// event slider
+var btnLeft = document.getElementById('prev_btn');
+var btnRight = document.getElementById('next_btn');
+
+var slider = document.querySelector('.container .slider');
+
+btnRight.addEventListener('click', nextSlide);
+function nextSlide(){
+    slider.appendChild(slider.firstElementChild);
+}
+btnLeft.addEventListener('click', prevSlide);
+function prevSlide(){
+    slider.prepend(slider.lastElementChild);
+}
+    // auto sliding
+function autoSlide(){
+    deleteInterval = setInterval(timer, 2000);
+    function timer(){
+        nextSlide();
+    }
+}
+autoSlide();
+    //stop auto sliding when mouse is over
+    slider.addEventListener('mouseover', deleteAutoSliding);
+    btnRight.addEventListener('mouseover', deleteAutoSliding);
+    btnLeft.addEventListener('mouseover', deleteAutoSliding);
+
+    function deleteAutoSliding(){
+            clearInterval(deleteInterval);
+    }
+        // resume auto sliding when mouse is out
+        slider.addEventListener('mouseout', autoSlide);
+        btnRight.addEventListener('mouseout', autoSlide);
+        btnLeft.addEventListener('mouseout', autoSlide);
+
+</script>
+</body>
+</html>

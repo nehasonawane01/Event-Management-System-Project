@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <style>
+        .success-container {
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .booking-details {
+            margin-top: 20px;
+            text-align: left;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .success-icon {
+            color: #28a745;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1>Booking Confirmed!</h1>
+        <div class="booking-details">
+            <p><strong>Booking ID:</strong> {{ booking_id }}</p>
+            <p><strong>Event:</strong> {{ event_name }}</p>
+            <p><strong>Event Type:</strong> {{ event_type }}</p>
+            <p><strong>Location:</strong> {{ event_location }}</p>
+            <p><strong>Date:</strong> {{ event_date }}</p>
+            <p><strong>Amount Paid:</strong> ₹{{ total_price }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+        </div>
+    </div>
+</body>
+</html> 
